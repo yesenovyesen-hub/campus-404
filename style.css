@@ -266,3 +266,73 @@ h1 span { color: #829d52; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
+
+input,
+textarea,
+select,
+.search input,
+.add-form input,
+.add-form select,
+.filter-group select {
+  padding: 10px 14px;
+  border: 1px solid #b9c9be;
+  border-radius: 8px;
+  background: #f0f4f1;
+  color: #1e3a2f;
+  font-weight: 700;
+  transition: background-color .2s, border-color .2s, box-shadow .2s;
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+.search input:focus,
+.add-form input:focus,
+.add-form select:focus,
+.filter-group select:focus {
+  border: 2px solid #3a8a5f;
+  outline: none;
+  background: #f0f4f1;
+  box-shadow: 0 0 0 2px #3a8a5f26;
+}
+
+input::placeholder,
+textarea::placeholder,
+.search input::placeholder,
+.add-form input::placeholder {
+  color: #6b8f7e;
+  opacity: 1;
+  font-weight: 500;
+}
+
+select option {
+  background: #f0f4f1;
+  color: #1e3a2f;
+}
+
+.filter-label,
+.add-form > label {
+  padding: 8px 12px;
+  border-radius: 6px;
+  background: #f0f4f1;
+  color: #1e3a2f;
+}
+
+.filter-label i { color: #1e3a2f; }
+.add-form > label { font-weight: 700; }
+.brand, .brand-number { color: #e0e0e0; }
+.eyebrow, .results-count, .feed-heading > span,
+.item-location, .item-meta, .campus-label, .empty-state,
+.sidebar-note p, .search kbd, .category-tag {
+  color: #e0e0e0;
+}
+
+.dialog-heading .eyebrow { color: #e0e0e0; }
+.icon-button { color: #1e3a2f; }
+
+.toast {
+  padding: 8px 12px;
+  border-radius: 6px;
+  background: #f0f4f1;
+  color: #1e3a2f;
+}
