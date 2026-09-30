@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Campus 404 — сервис поиска потерянных вещей в кампусе."
+    />
+    <title>Campus 404 — потерянное и найденное</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#main" aria-label="Campus 404 — на главную">
+        <span class="brand-mark" aria-hidden="true"><i class="fa-solid fa-location-dot"></i></span>
+        <span>Campus <span class="brand-number">404</span></span>
+      </a>
+
+      <form class="search" role="search" onsubmit="return false">
+        <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+        <label class="visually-hidden" for="search-input">Поиск вещей</label>
+        <input id="search-input" type="search" placeholder="Найти вещь или место..." autocomplete="off" />
+        <kbd>/</kbd>
+      </form>
+      <button class="avatar-button" type="button" data-panel="Профиль" aria-label="Профиль">
+        <span>А</span>
+      </button>
+    </header>
+
+    <main class="page-layout" id="main">
+      <aside class="sidebar" id="sidebar" aria-label="Фильтры объявлений">
+        <div class="sidebar-heading">
+          <span class="eyebrow">НАВИГАЦИЯ</span>
+          <button class="icon-button sidebar-close" type="button" aria-label="Закрыть меню">
+            <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+          </button>
+        </div>
+
+        <button class="edit-button" id="edit-button" type="button" aria-pressed="false">
+          <i class="fa-solid fa-pen-to-square" aria-hidden="true"></i>
+          <span>Редактировать</span>
+        </button>
+
+        <div class="filter-group">
+          <label class="filter-label" for="category-filter">
+            <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
+            Категории
+          </label>
+          <select id="category-filter">
+            <option value="all">Все категории</option>
+            <option value="Электроника">Электроника</option>
+            <option value="Документы">Документы</option>
+            <option value="Одежда">Одежда</option>
+            <option value="Книги">Книги</option>
+            <option value="Другое">Другое</option>
+          </select>
+        </div>
+
+        <div class="sidebar-note">
+          <span class="note-icon"><i class="fa-solid fa-heart" aria-hidden="true"></i></span>
+          <p>Нашёл чужое? Помоги вещи вернуться домой.</p>
+        </div>
+        <div class="campus-label"><span class="live-dot"></span> КАМПУС · СЕГОДНЯ</div>
+      </aside>
+
+      <section class="content" aria-labelledby="page-title">
+        <div class="content-topline">
+          <div>
+            <p class="eyebrow">БЮРО НАХОДОК · КОРПУС А</p>
+            <h1 id="page-title">Потерялось? <span>Найдётся.</span></h1>
+          </div>
+          <div class="results-count" aria-live="polite"><strong id="result-count">4</strong> объявления</div>
+        </div>
+
+        <div class="feed-heading">
+          <h2>Последние находки</h2>
+          <span><i class="fa-regular fa-clock" aria-hidden="true"></i> Обновлено недавно</span>
+        </div>
+
+        <div class="items-grid" id="items-grid" aria-live="polite">
+          <article class="item-card" data-category="Электроника" data-search="наушники airpods белые библиотека электроника">
+            <div class="item-image image-headphones">
+              <img src="https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?auto=format&fit=crop&w=900&q=85" alt="Белые беспроводные наушники" />
+              <span class="image-index">01 / 04</span>
+              <button class="remove-item" type="button" aria-label="Удалить объявление"><i class="fa-solid fa-trash" aria-hidden="true"></i></button>
+            </div>
+            <div class="item-info">
+              <div class="item-title-row"><h3>Наушники AirPods</h3><span class="status status-found"><span></span>Найдено</span></div>
+              <p class="item-location"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Библиотека, 2 этаж</p>
+              <div class="item-meta"><span class="category-tag">Электроника</span><span>12 мин назад</span></div>
+            </div>
+          </article>
+
+          <article class="item-card" data-category="Документы" data-search="студенческий билет пропуск аудитория 204 документы">
+            <div class="item-image image-card">
+              <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=900&q=85" alt="Документы и карточки на столе" />
+              <span class="image-index">02 / 04</span>
+              <button class="remove-item" type="button" aria-label="Удалить объявление"><i class="fa-solid fa-trash" aria-hidden="true"></i></button>
+            </div>
+            <div class="item-info">
+              <div class="item-title-row"><h3>Студенческий билет</h3><span class="status status-returned"><span></span>Возвращено</span></div>
+              <p class="item-location"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Аудитория 204</p>
+              <div class="item-meta"><span class="category-tag">Документы</span><span>1 час назад</span></div>
+            </div>
+          </article>
+
+          <article class="item-card" data-category="Одежда" data-search="синий шарф холл корпус б одежда">
+            <div class="item-image image-scarf">
+              <img src="https://images.unsplash.com/photo-1601924994987-69e26d50dc26?auto=format&fit=crop&w=900&q=85" alt="Синий вязаный шарф" />
+              <span class="image-index">03 / 04</span>
+              <button class="remove-item" type="button" aria-label="Удалить объявление"><i class="fa-solid fa-trash" aria-hidden="true"></i></button>
+            </div>
+            <div class="item-info">
+              <div class="item-title-row"><h3>Синий шарф</h3><span class="status status-found"><span></span>Найдено</span></div>
+              <p class="item-location"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Холл, корпус Б</p>
+              <div class="item-meta"><span class="category-tag">Одежда</span><span>Сегодня, 10:42</span></div>
+            </div>
+          </article>
+
+          <article class="item-card" data-category="Книги" data-search="чистая архитектура книга читальный зал книги">
+            <div class="item-image image-book">
+              <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=900&q=85" alt="Книга на деревянном столе" />
+              <span class="image-index">04 / 04</span>
+              <button class="remove-item" type="button" aria-label="Удалить объявление"><i class="fa-solid fa-trash" aria-hidden="true"></i></button>
+            </div>
+            <div class="item-info">
+              <div class="item-title-row"><h3>«Чистая архитектура»</h3><span class="status status-found"><span></span>Найдено</span></div>
+              <p class="item-location"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Читальный зал</p>
+              <div class="item-meta"><span class="category-tag">Книги</span><span>Вчера, 16:20</span></div>
+            </div>
+          </article>
+        </div>
+        <p class="empty-state" id="empty-state" hidden>Ничего не нашлось. Попробуйте изменить запрос или категорию.</p>
+      </section>
+    </main>
+
+    <footer class="bottom-bar">
+      <nav class="bottom-nav" aria-label="Основная навигация">
+        <button class="nav-action menu-action" type="button" aria-label="Меню">
+          <i class="fa-solid fa-bars" aria-hidden="true"></i><span>Меню</span>
+        </button>
+        <button class="add-action" id="add-button" type="button" aria-label="Добавить находку">
+          <i class="fa-solid fa-plus" aria-hidden="true"></i><span>Добавить</span>
+        </button>
+        <button class="nav-action chat-action" type="button" data-panel="Чат" aria-label="Чат">
+          <i class="fa-regular fa-message" aria-hidden="true"></i><span>Чат</span>
+        </button>
+        <button class="nav-action profile-action" type="button" data-panel="Профиль" aria-label="Профиль">
+          <i class="fa-regular fa-user" aria-hidden="true"></i><span>Профиль</span>
+        </button>
+      </nav>
+    </footer>
+
+    <dialog class="add-dialog" id="add-dialog" aria-labelledby="dialog-title">
+      <form id="add-form" class="add-form">
+        <div class="dialog-heading">
+          <div><p class="eyebrow">НОВАЯ НАХОДКА</p><h2 id="dialog-title">Добавить вещь</h2></div>
+          <button class="icon-button dialog-close" type="button" aria-label="Закрыть"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+        </div>
+        <label>Название вещи<input name="title" required maxlength="60" placeholder="Например, синий зонт" /></label>
+        <label>Место находки<input name="location" required maxlength="60" placeholder="Корпус, этаж или аудитория" /></label>
+        <label>Категория<select name="category" required>
+          <option value="Электроника">Электроника</option><option value="Документы">Документы</option><option value="Одежда">Одежда</option><option value="Книги">Книги</option><option value="Другое">Другое</option>
+        </select></label>
+        <button class="submit-button" type="submit">Опубликовать находку <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+      </form>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
