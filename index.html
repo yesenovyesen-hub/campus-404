@@ -90,7 +90,7 @@
         </div>
 
         <div class="items-grid" id="items-grid" aria-live="polite">
-          <article class="item-card" data-category="Электроника" data-search="наушники airpods белые библиотека электроника">
+          <article class="item-card" data-card-id="airpods" data-owner-name="Анонимный пользователь" data-category="Электроника" data-search="наушники airpods белые библиотека электроника">
             <div class="item-image image-headphones">
               <img src="https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?auto=format&fit=crop&w=900&q=85" alt="Белые беспроводные наушники" />
               <span class="image-index">01 / 04</span>
@@ -100,10 +100,11 @@
               <div class="item-title-row"><h3>Наушники AirPods</h3><span class="status status-found"><span></span>Найдено</span></div>
               <p class="item-location"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Библиотека, 2 этаж</p>
               <div class="item-meta"><span class="category-tag">Электроника</span><span>12 мин назад</span></div>
+              <button class="contact-button" type="button" aria-label="Написать владельцу: Наушники AirPods"><i class="fa-regular fa-message" aria-hidden="true"></i> Написать</button>
             </div>
           </article>
 
-          <article class="item-card" data-category="Документы" data-search="студенческий билет пропуск аудитория 204 документы">
+          <article class="item-card" data-card-id="student-card" data-owner-name="Анонимный пользователь" data-category="Документы" data-search="студенческий билет пропуск аудитория 204 документы">
             <div class="item-image image-card">
               <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=900&q=85" alt="Документы и карточки на столе" />
               <span class="image-index">02 / 04</span>
@@ -113,10 +114,11 @@
               <div class="item-title-row"><h3>Студенческий билет</h3><span class="status status-returned"><span></span>Возвращено</span></div>
               <p class="item-location"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Аудитория 204</p>
               <div class="item-meta"><span class="category-tag">Документы</span><span>1 час назад</span></div>
+              <button class="contact-button" type="button" aria-label="Написать владельцу: Студенческий билет"><i class="fa-regular fa-message" aria-hidden="true"></i> Написать</button>
             </div>
           </article>
 
-          <article class="item-card" data-category="Одежда" data-search="синий шарф холл корпус б одежда">
+          <article class="item-card" data-card-id="blue-scarf" data-owner-name="Анонимный пользователь" data-category="Одежда" data-search="синий шарф холл корпус б одежда">
             <div class="item-image image-scarf">
               <img src="https://images.unsplash.com/photo-1601924994987-69e26d50dc26?auto=format&fit=crop&w=900&q=85" alt="Синий вязаный шарф" />
               <span class="image-index">03 / 04</span>
@@ -126,10 +128,11 @@
               <div class="item-title-row"><h3>Синий шарф</h3><span class="status status-found"><span></span>Найдено</span></div>
               <p class="item-location"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Холл, корпус Б</p>
               <div class="item-meta"><span class="category-tag">Одежда</span><span>Сегодня, 10:42</span></div>
+              <button class="contact-button" type="button" aria-label="Написать владельцу: Синий шарф"><i class="fa-regular fa-message" aria-hidden="true"></i> Написать</button>
             </div>
           </article>
 
-          <article class="item-card" data-category="Книги" data-search="чистая архитектура книга читальный зал книги">
+          <article class="item-card" data-card-id="clean-architecture" data-owner-name="Анонимный пользователь" data-category="Книги" data-search="чистая архитектура книга читальный зал книги">
             <div class="item-image image-book">
               <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=900&q=85" alt="Книга на деревянном столе" />
               <span class="image-index">04 / 04</span>
@@ -139,6 +142,7 @@
               <div class="item-title-row"><h3>«Чистая архитектура»</h3><span class="status status-found"><span></span>Найдено</span></div>
               <p class="item-location"><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Читальный зал</p>
               <div class="item-meta"><span class="category-tag">Книги</span><span>Вчера, 16:20</span></div>
+              <button class="contact-button" type="button" aria-label="Написать владельцу: Чистая архитектура"><i class="fa-regular fa-message" aria-hidden="true"></i> Написать</button>
             </div>
           </article>
         </div>
@@ -156,6 +160,7 @@
         </button>
         <button class="nav-action chat-action" type="button" data-panel="Чат" aria-label="Чат">
           <i class="fa-regular fa-message" aria-hidden="true"></i><span>Чат</span>
+          <span class="unread-count" id="unreadCount" aria-label="Непрочитанные сообщения" hidden>0</span>
         </button>
         <button class="nav-action profile-action" type="button" data-panel="Профиль" aria-label="Профиль">
           <i class="fa-regular fa-user" aria-hidden="true"></i><span>Профиль</span>
@@ -176,6 +181,32 @@
         </select></label>
         <button class="submit-button" type="submit">Опубликовать находку <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
       </form>
+    </dialog>
+
+    <dialog class="chat-modal" id="chatModal" aria-labelledby="chatTitle">
+      <div class="chat-shell">
+        <header class="chat-header">
+          <div class="bot-avatar" aria-hidden="true">C4</div>
+          <div class="chat-heading">
+            <strong id="chatTitle">Владелец карточки</strong>
+            <span class="chat-online"><span></span>онлайн</span>
+          </div>
+          <button class="chat-close" id="chatClose" type="button" aria-label="Закрыть чат">
+            <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+          </button>
+        </header>
+        <div class="chat-messages" id="chatMessages" aria-live="polite" aria-relevant="additions"></div>
+        <div class="typing-indicator" id="typingIndicator" aria-live="polite" hidden>
+          <span>печатает</span><i></i><i></i><i></i>
+        </div>
+        <form class="chat-composer" id="chatForm">
+          <label class="visually-hidden" for="chatInput">Ваше сообщение</label>
+          <textarea id="chatInput" rows="1" maxlength="1000" placeholder="Напишите сообщение..."></textarea>
+          <button class="chat-send" id="chatSend" type="submit" aria-label="Отправить сообщение">
+            <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+          </button>
+        </form>
+      </div>
     </dialog>
 
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
